@@ -1,0 +1,71 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Sedes
+{%endblock titulo%}
+{%block frase%}
+El mejor lugar para llevarte al límite de tu rendimiento.
+{%endblock frase%}
+{%block header%}
+    Nuestras Sedes
+{%endblock header%}
+
+{% block primario %}
+<table>
+    <tr>
+        <td width="200"><h2>Sedes</h2></td>
+        <td>
+            <a
+            href="{% url 'create_sede' %}"
+            class="btn btn-primary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-plus fa-lg" title="New Record"></i>
+            </a>
+        </td>
+    </tr>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Horarios de Atención</th>
+            <th>Servicios</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for sede in sede_list %}
+    <tr>
+        <td>{{sede.id}}</td>
+        <td>{{sede.nombre}}</td>
+        <td>{{sede.direccion}}</td>
+        <td>{{sede.horarios_de_atencion}}</td>
+        <td>{{sede.servicios}}</td>
+        <td>
+            <a
+            href="{% url 'detail_sede' sede.id %}"
+            class="btn btn-info"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-search fa-sm" title="View Record"></i>
+            </a>
+            <a
+            href="{% url 'update_sede' sede.id %}"
+            class="btn btn-primary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+            href="{% url 'delete_sede' sede.id %}"
+            class="btn btn-danger"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock primario %}

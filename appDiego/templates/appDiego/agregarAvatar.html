@@ -1,0 +1,22 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Cargar Avatar
+{%endblock titulo%}
+{%block frase%}
+Completa el siguiente formulario para cargar tu avatar
+{%endblock frase%}
+{%block header%}
+{%endblock header%}
+
+{% block primario %}
+<h2>Avatar</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_p}}
+    </table>
+    <input type="submit" value="Actualizar">
+</form>
+{% endblock primario %}

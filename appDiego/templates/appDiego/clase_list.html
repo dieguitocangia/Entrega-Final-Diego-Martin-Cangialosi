@@ -1,0 +1,67 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Clases
+{%endblock titulo%}
+{%block frase%}
+Encontra la clase, no la excusa.
+{%endblock frase%}
+{%block header%}
+    Nuestras Clases
+{%endblock header%}
+
+{% block primario %}
+<table>
+    <tr>
+        <td width="200"><h2>Clases</h2></td>
+        <td>
+            <a
+            href="{% url 'create_clase' %}"
+            class="btn btn-primary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-plus fa-lg" title="New Record"></i>
+            </a>
+        </td>
+    </tr>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Horario</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for clase in clase_list %}
+    <tr>
+        <td>{{clase.id}}</td>
+        <td>{{clase.nombre}}</td>
+        <td>{{clase.horario}}</td>
+        <td>
+            <a
+            href="{% url 'detail_clase' clase.id %}"
+            class="btn btn-info"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-search fa-sm" title="View Record"></i>
+            </a>
+            <a
+            href="{% url 'update_clase' clase.id %}"
+            class="btn btn-primary"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+            </a>
+            <a
+            href="{% url 'delete_clase' clase.id %}"
+            class="btn btn-danger"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+            </a>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock primario %}

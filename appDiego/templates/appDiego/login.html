@@ -1,0 +1,30 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Inicio de Sesión
+{%endblock titulo%}
+{%block frase%}
+Por favor ingresa tu usuario y contraseña para acceder a la plataforma.
+{%endblock frase%}
+{%block header%}
+{%endblock header%}
+
+{% block primario %}
+    <br>
+    {% if mensaje %}
+    <h4>
+        <p style="color: red" align="center">
+        {{ mensaje }}
+        </p>
+    </h4>
+    {% endif %}
+    
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+{% endblock primario %}

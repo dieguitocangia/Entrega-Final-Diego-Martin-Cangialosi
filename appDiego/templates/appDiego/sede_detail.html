@@ -1,0 +1,50 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Sedes
+{%endblock titulo%}
+{%block frase%}
+El mejor lugar para llevarte al límite de tu rendimiento.
+{%endblock frase%}
+{%block header%}
+    Nuestras Sedes
+{%endblock header%}
+
+{% block primario %}
+<table>
+    <tr>
+        <td><h2>Sede : {{object}} </h2></td>
+    </tr>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Horarios de Atención</th>
+            <th>Servicios</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{object.id}}</td>
+        <td>{{object.nombre}}</td>
+        <td>{{object.direccion}}</td>
+        <td>{{object.horarios_de_atencion}}</td>
+        <td>{{object.servicios}}</td>
+        <td>
+            <a
+            href="{% url 'sedes' %}"
+            class="btn btn-danger"
+            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+            ><i class="fa fa-share fa-sm" title="List Back"></i>
+            </a>
+        </td>
+    </tr>
+    
+    </tbody>
+</table>
+{% endblock primario %}

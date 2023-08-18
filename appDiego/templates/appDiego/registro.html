@@ -1,0 +1,22 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Registro nuevo usuario
+{%endblock titulo%}
+{%block frase%}
+Completa el siguiente formulario para crear tu usuario
+{%endblock frase%}
+{%block header%}
+{%endblock header%}
+
+{% block primario %}
+<h2>Crear nuevo Usuario</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">Crear Usuario</button>
+</form>
+{% endblock primario %}

@@ -1,0 +1,21 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Buscar Clases
+{%endblock titulo%}
+{%block frase%}
+Buscalo aqui...
+{%endblock frase%}
+{%block header%}
+    ¿No encuentras el horario de tu clase?
+{%endblock header%}
+
+{% block primario %}
+<h2>Buscar Clase</h2>
+<form action="/appDiego/buscar2" method="get">
+    {% csrf_token %}
+    <input type="text" name="clase" id="clase">
+    <input type="submit" value="Buscar">
+</form>
+{% endblock primario %}

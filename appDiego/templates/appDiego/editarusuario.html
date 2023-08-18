@@ -1,0 +1,22 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Editar usuario
+{%endblock titulo%}
+{%block frase%}
+Completa el siguiente formulario para editar tu usuario
+{%endblock frase%}
+{%block header%}
+{%endblock header%}
+
+{% block primario %}
+<h2>Editar Usuario</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit">Actualizar Usuario</button>
+</form>
+{% endblock primario %}

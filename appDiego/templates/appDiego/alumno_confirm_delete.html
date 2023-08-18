@@ -1,0 +1,23 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Eliminar Alumno
+{%endblock titulo%}
+{%block frase%}
+{%endblock frase%}
+{%block header%}
+
+{%endblock header%}
+
+{% block primario %}
+<h2>Eliminar Alumno del Registro</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="text-center">
+        <h3>¿Está seguro que quiere eliminar este Alumno del Registro? <p style="color:red"> {{object}}</p></h3>
+    </div>
+    <div class="text-center">
+    <input type="submit" class="btn btn-primary btn-block" value="Confirmar">
+</form>
+{% endblock primario %}

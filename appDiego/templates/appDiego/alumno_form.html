@@ -1,0 +1,23 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Nuevo Alumno
+{%endblock titulo%}
+{%block frase%}
+Completa el siguiente formulario
+{%endblock frase%}
+{%block header%}
+¿Nuevo alumno?
+{%endblock header%}
+
+{% block primario %}
+<h2>Crear nuevo Alumno</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+{% endblock primario %}

@@ -1,0 +1,33 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    Training Center - Resultados busqueda
+{%endblock titulo%}
+{%block frase%}
+Aquí estan los horarios para la clase que buscaste...
+{%endblock frase%}
+{%block header%}
+    Resultados 
+{%endblock header%}
+
+{% block primario %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for horario in horarios %}
+    <tr>
+        <td>{{horario.id}}</td>
+        <td>{{horario.nombre}}</td>
+        <td>{{horario.horario}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock primario %}
